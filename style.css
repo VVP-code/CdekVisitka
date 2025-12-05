@@ -1,0 +1,57 @@
+/* style.css - Diablo-style intro + RPG UI */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;600&display=swap');
+
+:root{
+  --bg-1:#071016; --bg-2:#0b1722; --accent:#7ee787; --gold:#e6c36a; --muted:#9aa4b2;
+  --card:rgba(255,255,255,0.03); --glass: rgba(255,255,255,0.03);
+  --burn:#ff6b3a;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Raleway, Arial, sans-serif; background-image: url('assets/img/fon.jpg');;color:#eaf4f1}
+button{font-family:inherit}
+
+.intro-overlay{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:9999;background:#000;
+}
+
+.intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.5) contrast(1.05)}
+.intro-vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,0,0,0) 20%, rgba(0,0,0,0.6) 60%);pointer-events:none}
+.intro-ui{position:relative;z-index:2;text-align:center;color:var(--gold);text-shadow:0 4px 18px rgba(0,0,0,0.7)}
+.logo{font-family:Cinzel, serif;font-size:64px;letter-spacing:6px;margin-bottom:8px}
+.lead-title{font-size:20px;color:#ffdca3;margin-bottom:6px}
+.intro-sub{color:var(--muted);margin-bottom:18px}
+.intro-actions .btn{padding:12px 22px;border-radius:8px;border:none;margin:6px;background:linear-gradient(90deg,#b33 10%, #ff8 80%);cursor:pointer;font-weight:700}
+.intro-actions .ghost{background:transparent;border:1px solid rgba(255,255,255,0.1);color:#fff}
+
+#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+.wrap{width:1100px;max-width:95vw;z-index:2;display:grid;grid-template-columns:360px 1fr;gap:20px;padding:24px;margin:auto}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:18px;border:1px solid var(--card);box-shadow:0 12px 40px rgba(0,0,0,0.6);backdrop-filter:blur(8px)}
+
+.portrait{height:360px;border-radius:12px;overflow:hidden;border:2px solid rgba(255,255,255,0.04);position:relative;background:#111}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.05) saturate(1.05)}
+.badge{position:absolute;left:12px;top:12px;background:linear-gradient(90deg,var(--accent),#baf7c8);color:#052017;padding:8px 12px;border-radius:12px;font-weight:800}
+.role-patch{position:absolute;right:12px;top:12px;background:rgba(0,0,0,0.45);padding:6px 10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04)}
+.summary{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.name{font-size:20px;font-weight:800;color:var(--accent)}
+.title{color:var(--muted);font-weight:700}
+.xp-bar{height:18px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);overflow:hidden}
+.xp-bar > i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#baf7c8);box-shadow:0 6px 18px rgba(0,0,0,0.5)}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+.stat-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
+.k{font-weight:800;color:var(--gold)}
+.t{color:var(--muted);font-size:13px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.btn{padding:10px 12px;border-radius:10px;border:none;cursor:pointer;font-weight:800}
+.btn-primary{background:linear-gradient(90deg,var(--accent),#baf7c8);color:#052017}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--gold)}
+
+.panel{padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+.quests .quest{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);background:rgba(255,255,255,0.01);margin-bottom:8px}
+.quest .dot{width:12px;height:12px;border-radius:50%;background:var(--gold)}
+
+.lead-card{display:flex;gap:12px;align-items:center}
+.empty-lead{color:var(--muted);min-height:60px;display:flex;align-items:center;justify-content:center}
+
+@media (max-width:980px){.wrap{grid-template-columns:1fr}.portrait{height:300px}}

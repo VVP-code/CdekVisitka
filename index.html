@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Привет, CDEK!</title>
+  <meta name="description" content="RPG-визитка лидогенератора CDEK — интро, рунный фон, звуки, XP" />
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div id="introOverlay" class="intro-overlay" aria-hidden="false">
+    <video id="introVideo" class="intro-video" preload="auto" playsinline>
+      <source src="assets/video/intro.mp4" type="video/mp4">
+      Ваш браузер не поддерживает видео-интро. Нажмите «Пропустить», чтобы продолжить.
+    </video>
+    <div class="intro-vignette"></div>
+    <div class="intro-ui">
+      <div class="logo">CDEK</div>
+      <div class="lead-title">Лидогенератор - Владимир</div>
+      <div class="intro-sub">шагает среди теней, собирая возможности</div>
+      <div class="intro-actions">
+        <button id="playIntroBtn" class="btn">Воспроизвести</button>
+        <button id="skipIntroBtn" class="btn ghost">Пропустить</button>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <main class="wrap" role="main" aria-label="RPG визитка лидогенератора" style="display:none;">
+    <section class="card left" aria-labelledby="heroTitle">
+      <div class="portrait" title="Vovolol — Lead Hunter">
+        <img id="portraitImg" src="assets/img/myphoto.jpg" alt="Портрет">
+        <div class="frame"></div>
+        <div class="badge">Lead Hunter</div>
+        <div class="role-patch">CDEK • Лидогенератор</div>
+      </div>
+
+      <div class="summary">
+        <div class="name" id="heroName">Владимир Прохоренков</div>
+        <div class="title">Lead Generator / Лидогенератор</div>
+
+        <div class="xp-meta"><span>Уровень</span><span id="level">1</span></div>
+        <div class="xp-bar" aria-hidden="true"><i id="xpInner"></i></div>
+        <div class="xp-meta"><span>XP</span><span id="xpText">0 / 100</span></div>
+
+        <div class="stat-grid">
+          <div class="stat-card"><div class="k" id="skill-find">85</div><div class="t">Поиск лидов</div></div>
+          <div class="stat-card"><div class="k" id="skill-crm">78</div><div class="t">Ведение CRM</div></div>
+          <div class="stat-card"><div class="k" id="skill-parse">90</div><div class="t">Парсинг</div></div>
+          <div class="stat-card"><div class="k" id="skill-talk">82</div><div class="t">Коммуникация</div></div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-primary" id="getLeadBtn"><i class="fa-magnet"></i> Получить лид</button>
+          <button class="btn btn-ghost" id="rollBtn"><i class="fa-dice"></i> Бросить кубик</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="right">
+      <div class="panel">
+        <h3 id="heroTitle">Краткое вступление</h3>
+        <p>Привет, команда CDEK! Я — Владимир (Вова), ваш новый Лидогенератор. Собираю качественные B2B & B2С-лиды, пытаюсь автоматизировать процесс поиска и встраиваю результаты в CRM. Люблю превращать хаос данных в рабочие задачи и закрывать квесты быстро и чисто.</p>
+      </div>
+
+      <div class="panel quests" id="questsPanel">
+        <h3>Текущие квесты</h3>
+        <div class="quest"><div class="left"><div class="dot"></div><div><div class="qhead">Сбор базы МП</div><div class="qmeta">Автоматизировать выгрузку потенциальных клиентов</div></div></div><div class="qstat">20%</div></div>
+        <div class="quest"><div class="left"><div class="dot"></div><div><div class="qhead">Валидация контактов</div><div class="qmeta">Подтянуть email/телефон для 2000 записей</div></div></div><div class="qstat">5%</div></div>
+        <div class="quest"><div class="left"><div class="dot"></div><div><div class="qhead">Интеграция в CRM</div><div class="qmeta">Настроить автоматическую загрузку из ЭК5</div></div></div><div class="qstat">0%</div></div>
+      </div>
+
+      <div class="panel" id="leadBox">
+        <h3>Последний найденный лид</h3>
+        <div id="lastLead" class="empty-lead">Пока нет лидов — нажми «Получить лид»</div>
+      </div>
+
+      <div class="panel">
+        <h3>Инструменты</h3>
+        <p>Python · Selenium · Requests · BeautifulSoup · SQL · Excel · CRM · Автоматические скрипты парсинга</p>
+      </div>
+
+      <div class="panel">
+        <h3>Мои скрижали — контакты</h3>
+        <p><strong>Почта:</strong> v.prokhorenkov@cdek.ru</p>
+        <p><strong>Телеграм:</strong> @VVP_engine</p>
+        <p><strong>Битрикс:</strong> Владимир Прохоренков</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
